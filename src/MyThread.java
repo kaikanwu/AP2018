@@ -1,13 +1,15 @@
-public class MyThread implements Runnable {
-    private String name;
-    public MyThread(String name){
-        this.name = name;
-    }
+import java.util.concurrent.Callable;
 
+public class MyThread implements Callable<String> {
+    private int ticket = 10;
     @Override
-    public void run(){
-        for (int x = 0; x<200; x++){
-            System.out.println(this.name + "-->" + x);
+    public String call() throws Exception{
+        for (int x = 0; x < 100; x++){
+            if (this.ticket>0){
+                System.out.println("sale the ticket, ticket left= " + this.ticket--);
+
+            }
         }
+        return "The ticket is sold out!";
     }
 }
