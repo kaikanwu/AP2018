@@ -4,12 +4,35 @@ import java.awt.*;
 
 public class GUI extends JFrame {
 
-     JTextField tf;
+
+
     public GUI(){
-        tf = new JTextField(20);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        add(tf);
-        setVisible(true);
+
+        JFrame window = new JFrame("test");
+
+        JPanel panel = new JPanel();
+
+        window.setSize(400,300);
+        window.setLocation(200,200);
+
+
+
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 10; i++) {
+            sb.append("----------\n");
+        }
+
+
+        
+        JLabel label = new JLabel(sb.toString());
+
+        panel.add(label);
+        window.add(panel);
+
+//        window.setResizable(false);
+        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setVisible(true);
     }
 
 
