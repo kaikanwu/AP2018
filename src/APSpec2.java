@@ -1,0 +1,2 @@
+public class APSpec2 {
+}
