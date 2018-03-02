@@ -13,7 +13,7 @@ public class Grid implements Runnable {
     }
 
     public void drawGrid(){
-        while (count < 2000){
+        while (count < 30){
             System.out.println("-----------------------------------------");
 
             //

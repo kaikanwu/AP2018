@@ -11,11 +11,5 @@ public class APSpec1 {
         gridThread.start();
 
 
-
-
-
-
-
-
     }
 }
