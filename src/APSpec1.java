@@ -6,6 +6,7 @@ public class APSpec1 {
         int columns =20;
 
 
+        // set the grid square
         Grid grid = new Grid(columns,rows);
         Thread gridThread = new Thread(grid);
         gridThread.start();
