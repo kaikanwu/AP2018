@@ -37,5 +37,6 @@ public class APSpec1 {
          */
 
 
+        new Car(gridSquares,0,"-");
     }
 }
