@@ -6,10 +6,35 @@ public class APSpec1 {
         int columns =20;
 
 
-        // set the grid square
-        Grid grid = new Grid(columns,rows);
-        Thread gridThread = new Thread(grid);
+        /*
+         * 1. make the grid square
+         */
+        
+        GridSquare[][] gridSquares = new GridSquare[rows][columns];
+
+
+        //make each grid square to be a object.
+        for (int i = 0; i <rows ; i++) {
+            for (int j = 0; j < columns ; j++) {
+                gridSquares[i][j] = new GridSquare();
+
+            }
+
+        }
+
+
+        /*
+         * 2. Draw the grid
+         */
+        DrawGrid drawGrid = new DrawGrid(gridSquares);
+        Thread gridThread = new Thread(drawGrid);
         gridThread.start();
+
+
+
+        /*
+         * 3. Generate the cars
+         */
 
 
     }
