@@ -37,6 +37,13 @@ public class APSpec1 {
          */
 
 
-        new Car(gridSquares,0,"-");
+        // when the grid thread start, generate the car
+        while (gridThread.isAlive()){
+            Thread.sleep(500);
+
+            Thread car = new Thread( new Car(gridSquares,0,"-"));
+//            new Car(gridSquares,0,"-");
+            car.start();
+        }
     }
 }
