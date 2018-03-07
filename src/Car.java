@@ -9,11 +9,11 @@ public class Car implements Runnable {
     private GridSquare[][] gridSquare;
 
     //position for car
-    int startPosition;
-    int currentPosition;
+    private int columnPosition;
+    private int rowPosition;
 
-    GridSquare nextSquare;
-    GridSquare currentSquare;
+    private GridSquare nextSquare;
+    private GridSquare currentSquare;
 
 
     //
@@ -25,23 +25,25 @@ public class Car implements Runnable {
         this.carSymbol = carSymbol;
 
 
-        //each car has a randomly constant speed, max = 500
+        //each car has a randomly constant speed, max = 500 , min = 100
         Random r = new Random();
         carSpeed = r.nextInt(500) + 100;
 
 
         //car from North to South
         if (carDirection == 0){
-            currentPosition = 0;
-            startPosition = r.nextInt(gridSquare[0].length);
-            nextSquare = gridSquare[currentPosition][startPosition];
+            //at start , the row position must be 0
+            rowPosition = 0;
+            //at start, the column position should be random
+            columnPosition = r.nextInt(gridSquare[0].length);
+            currentSquare = gridSquare[rowPosition][columnPosition];
         }
 
         //car from West to East
         if (carDirection == 1){
-            currentPosition = 0;
-            startPosition = r.nextInt(gridSquare.length);
-            nextSquare = gridSquare[currentPosition][startPosition];
+            rowPosition = 0;
+            columnPosition = r.nextInt(gridSquare.length);
+            nextSquare = gridSquare[rowPosition][columnPosition];
         }
 
 
@@ -58,7 +60,7 @@ public class Car implements Runnable {
     public void run() {
 
         //car move
-        nextSquare.takeSquare(this);
+        currentSquare.takeSquare(this);
 
 
         while (!isFinished){
@@ -66,7 +68,7 @@ public class Car implements Runnable {
             move();
             nextSquare.takeSquare(this);
 
-            gridSquare[getCurrentPosition()-1][startPosition].leaveSquare(this);
+            gridSquare[getRowPosition()-1][columnPosition].leaveSquare(this);
 
             //check car is finished or not
             checkCarStatus();
@@ -90,7 +92,8 @@ public class Car implements Runnable {
 
     public void move(){
         if (carDirection == 0){
-            nextSquare = gridSquare[++currentPosition][startPosition];
+            nextSquare = gridSquare[++rowPosition][columnPosition];
+
         }
     }
 
@@ -101,7 +104,7 @@ public class Car implements Runnable {
      */
 
     public void checkCarStatus(){
-        if (carDirection == 0 && currentPosition== gridSquare.length -1){
+        if (carDirection == 0 && rowPosition== gridSquare.length -1){
             isFinished = true;
         }
     }
@@ -135,7 +138,7 @@ public class Car implements Runnable {
     }
 
 
-    public int getCurrentPosition() {
-        return currentPosition;
+    public int getRowPosition() {
+        return rowPosition;
     }
 }

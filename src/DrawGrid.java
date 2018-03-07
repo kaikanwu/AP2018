@@ -41,7 +41,7 @@ public class DrawGrid implements Runnable {
 
             //draw every 20 milliseconds
             try {
-                Thread.sleep(200);
+                Thread.sleep(20);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

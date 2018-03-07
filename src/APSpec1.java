@@ -27,8 +27,8 @@ public class APSpec1 {
          * 2. Draw the grid
          */
         DrawGrid drawGrid = new DrawGrid(gridSquares);
-        Thread gridThread = new Thread(drawGrid);
-        gridThread.start();
+        Thread drawGridThread = new Thread(drawGrid);
+        drawGridThread.start();
 
 
 
@@ -38,12 +38,16 @@ public class APSpec1 {
 
 
         // when the grid thread start, generate the car
-        while (gridThread.isAlive()){
+        while (drawGridThread.isAlive()){
             Thread.sleep(500);
 
-            Thread car = new Thread( new Car(gridSquares,0,"-"));
+            Thread car1 = new Thread( new Car(gridSquares,0,"-"));
 //            new Car(gridSquares,0,"-");
-            car.start();
+            car1.start();
+
+
+            //
+
         }
     }
 }

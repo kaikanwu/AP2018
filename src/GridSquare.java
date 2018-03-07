@@ -14,7 +14,7 @@ public class GridSquare {
 
 
     /*
-     * the car take the square
+     * the car take the square, change the symbol
      */
     public void takeSquare(Car car){
         try {
@@ -23,9 +23,7 @@ public class GridSquare {
             e.printStackTrace();
         }
 
-
         squareLock.lock();
-
         try {
 
             while (isOccupied){
@@ -44,7 +42,7 @@ public class GridSquare {
     }
 
     /*
-        car leave the square
+        car leave the square,change the symbol to "| "
      */
     public void leaveSquare(Car car){
         squareLock.lock();
