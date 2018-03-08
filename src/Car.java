@@ -20,6 +20,9 @@ public class Car implements Runnable {
 
     private boolean isFinished= false;
 
+    private double startTime;
+    private double endTime;
+    private double elapsedTime;
     /**
      * Car constructor for spec1
      * @param gridSquare
@@ -61,7 +64,6 @@ public class Car implements Runnable {
 //        }
 
     }
-
 
     /**
      * Car constructor for spec2
@@ -122,6 +124,9 @@ public class Car implements Runnable {
      */
     @Override
     public void run() {
+        //record the start time
+        startTime = System.nanoTime();
+
 
         //let the car display at the start position
         currentSquare.takeSquare(this);
@@ -145,12 +150,17 @@ public class Car implements Runnable {
             //check car is finished or not
             checkCarStatus();
         }
-
+        // car need to leave the last grid square
         try {
             Thread.sleep(carSpeed);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //record the end time
+        endTime = System.nanoTime();
+
+        elapsedTime = endTime-startTime;
+
         nextSquare.leaveSquare(this);
 
     }
@@ -233,5 +243,9 @@ public class Car implements Runnable {
 
     public int getColumnPosition() {
         return columnPosition;
+    }
+
+    public double getElapsedTime() {
+        return elapsedTime;
     }
 }

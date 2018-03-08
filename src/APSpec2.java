@@ -35,7 +35,7 @@ public class APSpec2 {
         while (drawGridThread.isAlive()){
 
             try {
-                Thread.sleep(500);
+                Thread.sleep(200);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -53,7 +53,21 @@ public class APSpec2 {
             Thread carThread4 = new Thread(carGenerator4);
             carThread4.start();
 
+
+            try {
+                carThread1.join();
+                carThread2.join();
+                carThread3.join();
+                carThread4.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+
         }
+
+
+
 
         /*
          * 4. stop the simulator when the grid has be-en drawn 2000 times
