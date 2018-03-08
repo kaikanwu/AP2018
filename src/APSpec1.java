@@ -1,6 +1,13 @@
-import java.util.concurrent.FutureTask;
-
+/**
+ *
+ *  @author Kaikan Wu (2327942w)
+ */
 public class APSpec1 {
+    /**
+     * Main method
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args)throws Exception{
         int rows = 10;
         int columns =20;
@@ -15,7 +22,7 @@ public class APSpec1 {
                 gridSquares[i][j] = new GridSquare();
             }
         }
-        
+
         /*
          * 2. Draw the grid
          */
@@ -28,7 +35,7 @@ public class APSpec1 {
          */
         // when the grid thread start, generate the car
         while (drawGridThread.isAlive()){
-            //let the car generate not too fast
+            //let the car generate not too fast, make the screen more clear
             Thread.sleep(800);
             // car From North to South. Symbol: "o"
             Thread car1 = new Thread( new Car(gridSquares,0,"o"));
@@ -39,7 +46,7 @@ public class APSpec1 {
         }
 
         /*
-         * 4. stop the simulator when the grid has been drawn 2000 times
+         * 4. stop the simulator when the grid has be-en drawn 2000 times
          */
         System.exit(0);
 

@@ -1,27 +1,38 @@
+/**
+ * class DrawGrid: draw the grid every 20 milliseconds
+ * @author 2327942w
+ */
 public class DrawGrid implements Runnable {
-
     private int count=0;
     private int runTime = 2000;
     private GridSquare[][] gridSquares;
     private StringBuilder stringBuilder;
 
+    /**
+     * constructor
+     *
+     * @param gridSquares
+     */
     public DrawGrid(GridSquare[][] gridSquares){
         this.gridSquares = gridSquares;
     }
 
 
+    /**
+     * override the run method
+     */
     @Override
     public void run() {
         drawGrid();
     }
 
-    /*
-     * method: draw the grid
+
+    /**
+     * method to draw the grid
      */
     private void drawGrid(){
+        // draw 2000 times
         while (count < runTime){
-
-
             stringBuilder = new StringBuilder();
             stringBuilder.append("-----------------------------------------" +"\r\n");
             //get the symbol from each grid square

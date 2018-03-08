@@ -1,8 +1,10 @@
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-/*
-Only one car can be in any one grid square
+
+/**
+ * class gridSquare, make each grid square to be a object
+ * only one can be in one grid square
  */
 public class GridSquare {
     private ReentrantLock squareLock = new ReentrantLock();
@@ -12,9 +14,9 @@ public class GridSquare {
 
 
 
-
-    /*
-     * the car take the square, change the symbol
+    /**
+     * when the car take the square, change the symbol on the grid
+     * @param car
      */
     public void takeSquare(Car car){
         try {
@@ -25,7 +27,7 @@ public class GridSquare {
 
         squareLock.lock();
         try {
-
+            //only one car can be in one grid square
             while (isOccupied){
                 occupied.await();
             }
@@ -41,8 +43,10 @@ public class GridSquare {
 
     }
 
-    /*
-        car leave the square,change the symbol to "| "
+
+    /**
+     * when the car leave the square, change the symbol to "| "
+     * @param car
      */
     public void leaveSquare(Car car){
         squareLock.lock();
@@ -57,10 +61,10 @@ public class GridSquare {
     }
 
 
-    /*
-     * setter and getter
+    /**
+     * setter and getter method
+     * @return
      */
-
     public String getSymbol(){
         return symbol;
     }
