@@ -62,7 +62,7 @@ public class Generator implements Runnable {
 
 
     /**
-     * record time 
+     * record time
      * @param elapsedTime
      */
     public void recordTime(double elapsedTime){

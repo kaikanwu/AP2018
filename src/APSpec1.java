@@ -1,5 +1,5 @@
 /**
- *
+ * Class for the  Advanced Programming Specifications - level 1
  *  @author Kaikan Wu (2327942w)
  */
 public class APSpec1 {
@@ -51,3 +51,7 @@ public class APSpec1 {
 
     }
 }
+
+
+
+

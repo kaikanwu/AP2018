@@ -12,15 +12,11 @@ public class APSpec2 {
          */
 
         GridSquare[][] gridSquares = new GridSquare[rows][columns];
-
-
         //make each grid square to be a object.
         for (int i = 0; i <rows ; i++) {
             for (int j = 0; j < columns ; j++) {
                 gridSquares[i][j] = new GridSquare();
-
             }
-
         }
 
 
@@ -31,10 +27,6 @@ public class APSpec2 {
         /*
          * 3. Generate the cars
          */
-        // when the grid thread start, generate the car
-//        while (drawGridThread.isAlive()){
-
-
 
             // four different car generator
             Generator carGenerator1 = new Generator(gridSquares,2,1000,"*","S->N",  drawGridThread);
@@ -63,16 +55,12 @@ public class APSpec2 {
             }
 
 
-//        }
-
 
 
 
         /*
-         * 4. stop the simulator when the grid has be-en drawn 2000 times
+         * 4. stop the simulator
          */
-
-
 
         System.exit(0);
 

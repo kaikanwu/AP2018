@@ -84,10 +84,10 @@ public class Statistics {
     public void writeReport(){
         StringBuilder sb = new StringBuilder();
         sb.append("In generator " + generatorName +  ": \r\n"  );
-        sb.append("The max time is: " + max() + "\r\n" + "seconds");
-        sb.append("The min time is:" + min() + "\r\n" + "seconds");
-        sb.append("The mean time is " + mean() + "\r\n" + "seconds");
-        sb.append("The variance time  is " + variance() + "\r\n");
+        sb.append("The max time is: " + max() + " seconds" + "\r\n" );
+        sb.append("The min time is: " + min() + " seconds" + "\r\n" );
+        sb.append("The mean time is: " + mean() + " seconds" + "\r\n" );
+        sb.append("The variance time is " + variance() + "\r\n");
         System.out.println(sb);
     }
 

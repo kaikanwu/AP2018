@@ -48,7 +48,7 @@ public class DrawGrid implements Runnable {
             stringBuilder.append("-----------------------------------------" +"\r\n");
             System.out.println(stringBuilder);
             count++;
-            System.out.println(count + "\r\n" + "\r\n");
+//            System.out.println(count + "\r\n" + "\r\n");
 
             //draw every 20 milliseconds
             try {

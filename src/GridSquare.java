@@ -27,6 +27,7 @@ public class GridSquare {
 
         squareLock.lock();
         try {
+
             //only one car can be in one grid square
             while (isOccupied){
                 occupied.await();
