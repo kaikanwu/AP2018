@@ -31,7 +31,7 @@ public class DrawGrid implements Runnable {
      * method to draw the grid
      */
     private void drawGrid(){
-        // draw 2000 times
+        // draw 2000 time
         while (count < runTime){
             stringBuilder = new StringBuilder();
             stringBuilder.append("-----------------------------------------" +"\r\n");

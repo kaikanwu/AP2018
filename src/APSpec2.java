@@ -32,18 +32,17 @@ public class APSpec2 {
          * 3. Generate the cars
          */
         // when the grid thread start, generate the car
-        while (drawGridThread.isAlive()){
+//        while (drawGridThread.isAlive()){
 
-            try {
-                Thread.sleep(200);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            Generator carGenerator1 = new Generator(gridSquares,2,1000,"*");
-            Generator carGenerator2 = new Generator(gridSquares,0,1000,"o");
-            Generator carGenerator3 = new Generator(gridSquares,1,1000,"-");
-            Generator carGenerator4 = new Generator(gridSquares,3,1000,"x");
 
+
+            // four different car generator
+            Generator carGenerator1 = new Generator(gridSquares,2,1000,"*","S->N",  drawGridThread);
+            Generator carGenerator2 = new Generator(gridSquares,0,1000,"o","N->S",  drawGridThread);
+            Generator carGenerator3 = new Generator(gridSquares,1,1000,"-","W->E",  drawGridThread);
+            Generator carGenerator4 = new Generator(gridSquares,3,1000,"x","E->W",  drawGridThread);
+
+            // start the threads
             Thread carThread1 = new Thread(carGenerator1);
             carThread1.start();
             Thread carThread2 = new Thread(carGenerator2);
@@ -64,7 +63,7 @@ public class APSpec2 {
             }
 
 
-        }
+//        }
 
 
 
@@ -72,6 +71,9 @@ public class APSpec2 {
         /*
          * 4. stop the simulator when the grid has be-en drawn 2000 times
          */
+
+
+
         System.exit(0);
 
 

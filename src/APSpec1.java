@@ -29,7 +29,6 @@ public class APSpec1 {
         DrawGrid drawGrid = new DrawGrid(gridSquares);
         Thread drawGridThread = new Thread(drawGrid);
         drawGridThread.start();
-
         /*
          * 3. Generate the cars
          */

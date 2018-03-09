@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -23,6 +24,8 @@ public class Car implements Runnable {
     private double startTime;
     private double endTime;
     private double elapsedTime;
+    private ArrayList<Double> timeArray = new ArrayList<Double>();
+    private Generator generator;
     /**
      * Car constructor for spec1
      * @param gridSquare
@@ -55,13 +58,6 @@ public class Car implements Runnable {
             rowPosition = r.nextInt(gridSquare.length);
             currentSquare = gridSquare[rowPosition][columnPosition];
         }
-//        //car from South to North
-//        else if (carDirection == 2){
-//            rowPosition = gridSquare.length - 1;
-//            columnPosition
-//
-//
-//        }
 
     }
 
@@ -76,7 +72,7 @@ public class Car implements Runnable {
         this.gridSquare = gridSquare;
         this.carDirection = carDirection;
         this.carSymbol = carSymbol;
-
+        this.generator= generator;
 
         //each car has a randomly constant speed, max = 1000 , min = 100
         Random r = new Random();
@@ -161,9 +157,19 @@ public class Car implements Runnable {
 
         elapsedTime = endTime-startTime;
 
+        //add elapsed time to array only at generator run
+        if (generator!=null){
+            generator.recordTime(elapsedTime);
+
+        }
+
+
         nextSquare.leaveSquare(this);
 
     }
+
+
+
 
 
 
@@ -248,4 +254,6 @@ public class Car implements Runnable {
     public double getElapsedTime() {
         return elapsedTime;
     }
+
+
 }
